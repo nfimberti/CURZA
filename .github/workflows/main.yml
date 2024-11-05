@@ -1,0 +1,26 @@
+name: Prueba unitaria
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Ejecutar prueba unitaria
+        run: |
+          python -m unittest test.py
+
+	c. Crear un archivo test.py con el siguiente contenido:
+
+import unittest
+
+class TestSum(unittest.TestCase):
+def test_sum(self):
+self.assertEqual(sum(1, 2), 3)
+
+if __name__ == '__main__':
+unittest.main()
